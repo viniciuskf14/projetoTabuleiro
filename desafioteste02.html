@@ -47,151 +47,127 @@ jogador tentar chamar o método "jogar".
 atual e Y é a casa em que ele estará ao finalizar sua jogada.
 
  */
-   let player1 = 1
-   let player2 = 1
-   let jogadores = player1 && player2 //criado exclusivamente para utilizar no for
+   <script>
+    let player1 = 0
+    let player2 = 0
+    let gameOver = false
+    let continuar = true
+    let dado1
+    let dado2
 
-   let start = window.prompt("Deseja começar? \n 1- Sim\n 2- Não") //play
+    while (gameOver == false) {
 
-   switch (start) {
-
-      case '1':
-         let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-         let dado2 = Math.floor(Math.random() * 7) // sortear dado2
-
-         player1 = (player1 + dado1 + dado2)
-
-         if (dado1 == dado2) {
-            let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-            let dado2 = Math.floor(Math.random() * 7) // sortear dado2
+        continuar = ""
+        continuar = window.prompt("Vez do jogador 1, deseja rolar os dados?") //play
+        if (continuar == true) {
+            dado1 = Math.floor(Math.random() * 7) // sortear dado1
+            dado2 = Math.floor(Math.random() * 7) // sortear dado2
 
             player1 = (player1 + dado1 + dado2)
-
-
-         } if (dado1 != dado2) {
-            let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-            let dado2 = Math.floor(Math.random() * 7) // sortear dado2
-
-            player2 = (player2 + dado1 + dado2)
-
-         } if (dado1 == dado2) {
-            let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-            let dado2 = Math.floor(Math.random() * 7) // sortear dado2
-
-            player2 = (player2 + dado1 + dado2)
-         }
-         break
-
-      case '2':
-         window.alert("Obrigado por jogar! ")
-         break
-   }
-
-   let continuar3 = window.prompt(`O resultado dessa rodada é de: ${player1}\n ${player2}\n Deseja continuar?\n 1- Sim\n 2- Não`) //exibição de resultado da primeira rodada
-
-   switch (continuar3) {
-
-      case '1':
-         for (let jogadores = 1; jogadores <= 100; jogadores++) {
-            let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-            let dado2 = Math.floor(Math.random() * 7) // sortear dado2
+            window.prompt(`Jogador 1 tirou ${dado1} no primeiro dado\nE ${dado2} no segundo\n Posição do Jogador 1: ${player1}\nDeseja jogar novamente?`)
+        }
+        else if (contiuar == false) {
+            window.alert("Obrigado por jogar!")
+            break
+        }
+        if (dado1 == dado2) {
+            dado1 = Math.floor(Math.random() * 7) // sortear dado1
+            dado2 = Math.floor(Math.random() * 7) // sortear dado2
 
             player1 = (player1 + dado1 + dado2)
+            window.prompt(`Jogador 1 tirou ${dado1} no primeiro dado\nE ${dado2} no segundo\n Posição do Jogador 1: ${player1}\nDeseja jogar novamente?`)
+        }
 
-            if (dado1 == dado2) {
-               let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-               let dado2 = Math.floor(Math.random() * 7) // sortear dado2
+        continuar = window.prompt("Vez do jogador 2, deseja rolar os dados?")
+        if (continuar == true) {
+            dado1 = Math.floor(Math.random() * 7) // sortear dado1
+            dado2 = Math.floor(Math.random() * 7) // sortear dado2
 
-               player1 = (player1 + dado1 + dado2)
+            player2 = (player2 + dado1 + dado2)
+            window.prompt(`Jogador 2 tirou ${dado1} no primeiro dado\nE ${dado2} no segundo\n Posição do Jogador 2: ${player2}\nDeseja jogar novamente?`)
+        }
+        if (dado1 == dado2) {
+            dado1 = Math.floor(Math.random() * 7) // sortear dado1
+            dado2 = Math.floor(Math.random() * 7) // sortear dado2
 
+            player2 = (player2 + dado1 + dado2)
+            window.prompt(`Jogador 2 tirou ${dado1} no primeiro dado\nE ${dado2} no segundo\n Posição do Jogador 1: ${player2}\nDeseja jogar novamente?`)
+        }
+        else if (continuar == false) {
+            window.alert("Obrigado por jogar!")
+            break
+        }
 
-            } if (dado1 != dado2) {
-               let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-               let dado2 = Math.floor(Math.random() * 7) // sortear dado2
+        // *** REGRAS DO GAME ***
+        if (player1 == 2) {
+            player1 == 38
+            window.alert("Jogador 1 caiu numa casa com escada e agora foi direto para a casa 38!") //caso o jogador caia em alguma casa que contenha escadas
+        }
+        if (player2 == 2) {
+            player2 == 38
+            window.alert("Jogador 2 caiu numa casa com escada e agora foi direto para a casa 38!")//caso o jogador caia em alguma casa que contenha escadas
+        }
+        if (player1 == 28) {
+            player1 == 84
+            window.alert("Jogador 1 caiu numa casa com escada e agora foi direto para a casa 84!")//caso o jogador caia em alguma casa que contenha escadas
+        }
+        if (player2 == 28) {
+            player2 == 84
+            window.alert("Jogador 2 caiu numa casa com escada e agora foi direto para a casa 84!")//caso o jogador caia em alguma casa que contenha escadas
+        }
+        if (player1 == 8) {
+            player1 == 31
+            window.alert("Jogador 1 caiu numa casa com escada e agora foi direto para a casa 31!")//caso o jogador caia em alguma casa que contenha escadas
+        }
+        if (player2 == 8) {
+            player2 == 31
+            window.alert("Jogador 2 caiu numa casa com escada e agora foi direto para a casa 31!")//caso o jogador caia em alguma casa que contenha escadas
+        }
+        if (player1 == 46) {
+            player1 == 25
+            window.alert("Jogador 1 caiu numa casa com cobras e voltou para a casa 25!")//caso o jogador caia em alguma casa que contenha cobras
 
-               player2 = (player2 + dado1 + dado2)
+        }
+        if (player2 == 46) {
+            player2 == 25
+            window.alert("Jogador 2 caiu numa casa com cobras e voltou para a casa 25!")//caso o jogador caia em alguma casa que contenha cobras
+        }
+        if (player1 == 99) {
+            player1 == 80
+            window.alert("Jogador 1 caiu numa casa com cobras e voltou para a casa 80!")//caso o jogador caia em alguma casa que contenha cobras
+        }
+        if (player2 == 99) {
+            player2 == 80
+            window.alert("Jogador 2 caiu numa casa com cobras e voltou para a casa 80!")//caso o jogador caia em alguma casa que contenha cobras
+        }
+        if (player1 == 62) {
+            player1 == 19
+            window.alert("Jogador 1 caiu numa casa com cobras e voltou para a casa 19!")//caso o jogador caia em alguma casa que contenha cobras
+        }
+        if (player2 == 62) {
+            player2 == 19
+            window.alert("Jogador 2 caiu numa casa com cobras e voltou para a casa 19!")//caso o jogador caia em alguma casa que contenha cobras
 
-            } if (dado1 == dado2) {
-               let dado1 = Math.floor(Math.random() * 7) // sortear dado1
-               let dado2 = Math.floor(Math.random() * 7) // sortear dado2
+        }
+        if (player1 == 49) {
+            player1 == 11
+            window.alert("Jogador 1 caiu numa casa com cobras e voltou para a casa 11!")//caso o jogador caia em alguma casa que contenha cobras
+        }
+        if (player2 == 49) {
+            player2 == 11
+            window.alert("Jogador 2 caiu numa casa com cobras e voltou para a casa 11!")//caso o jogador caia em alguma casa que contenha cobras
+        }
+        if (player1 >= 100) {
+            gameOver == true
+            window.alert("O jogador 1 Venceu!\nObrigado por jogar!")
+            break
 
-               player2 = (player2 + dado1 + dado2)
-            }
-            window.prompt(`O resultado dessa rodada é de: ${player1}\n ${player2}\n Deseja continuar?\n 1- Sim\n 2- Não`)//ctrl c + ctrl v do comando antes do switch(continuar3) para que esteja dentro do for, sendo assim, exibindo o resultado a cada rodada
-            // REGRAS DO JOGO: 
-            if (player1 == 2) {
-               player1 == 38
-               window.alert("Ihul! player 1 passou pela casa premiada :D") //caso o jogador caia em alguma casa que contenha escadas
-            }
-            if (player2 == 2) {
-               player2 == 38
-               window.alert("Ihul! player 2 passou pela casa premiada :D")//caso o jogador caia em alguma casa que contenha escadas
-            }
-            if (player1 == 28) {
-               player1 == 84
-               window.alert("Ihul! player 1 passou pela casa premiada :D")//caso o jogador caia em alguma casa que contenha escadas
-            }
-            if (player2 == 28) {
-               player2 == 84
-               window.alert("Ihul! player 2 passou pela casa premiada :D")//caso o jogador caia em alguma casa que contenha escadas
-            }
-            if (player1 == 8) {
-               player1 == 31
-               window.alert("Ihul! player 1 passou pela casa premiada :D")//caso o jogador caia em alguma casa que contenha escadas
-            }
-            if (player2 == 8) {
-               player2 == 31
-               window.alert("Ihul! player 2 passou pela casa premiada :D")//caso o jogador caia em alguma casa que contenha escadas
-            }
-            if (player1 == 46) {
-               player1 == 25
-               window.alert("Player 1 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
+        } else if (player2 >= 100) {
+            gameOver == true
+            window.alert("O jogador 2 Venceu!\nObrigado por jogar!")
+            break
 
-            }
-            if (player2 == 46) {
-               player2 == 25
-               window.alert("Player 2 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
-            }
-            if (player1 == 99) {
-               player1 == 80
-               window.alert("Player 1 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
-            }
-            if (player2 == 99) {
-               player2 == 80
-               window.alert("Player 2 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
-            }
-            if (player1 == 62) {
-               player1 == 19
-               window.alert("Player 1 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
-            }
-            if (player2 == 62) {
-               player2 == 19
-               window.alert("Player 2 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
+        }
+    }
 
-            } if (player1 == 49) {
-               player1 == 11
-               window.alert("Player 1 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
-            }
-            if (player2 == 49) {
-               player2 == 11
-               window.alert("Player 2 passou pela casa assombrada! :(")//caso o jogador caia em alguma casa que contenha cobras
-            }
-
-            // FINALIZAÇÃO DO GAME
-            if (player1 >= 100) {
-               window.alert("Parabéns player 1!\n Você ganhou") //condicional vencedor = player1
-               break
-
-            }
-            else if (player2 >= 100) {
-               window.alert("Parabéns player 2!\n Você ganhou") //condicional vencedor = player
-               break
-
-            }
-         }
-      case '2':
-
-         window.alert("Obrigado por jogar! ") // finalização do game em caso de término com vencedor ou desistência(opção 2).
-         break
-   }
 </script>
